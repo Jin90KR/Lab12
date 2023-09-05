@@ -9,31 +9,35 @@ document.getElementById('user_name').innerHTML = userName + "  HEALTH";
 
 
 function monsterdamage(x) {
-    mDamage = Math.floor(Math.random() * x)
-    monsterRedGage.style.width = monsterRedGage.style.width - mDamage + "px"
-    
+    var mDamage = Math.floor(Math.random() * x)
+    monsterRedGage.style.width = monsterRedGage.offsetWidth - mDamage + "px"
+    console.log(typeof monsterRedGage.offsetWidth)
 
 }
 
 function userdamage(x) {
-    uDamage = 400-Math.floor(Math.random() * x)
-    userRedGage.style.width = uDamage + "px"
+    var uDamage = Math.floor(Math.random() * x)
+    userRedGage.style.width = userRedGage.offsetWidth - uDamage + "px"
     
+}
+
+function heal(x) {
+    userRedGage.style.width = userRedGage.offsetWidth + x + "px"
 }
 
 
 
 attackButton.addEventListener('click', ()=> {
 
-    monsterdamage(10)
-    userdamage(20)
+    monsterdamage(25)
+    userdamage(30)
 })
 
 strongButton.addEventListener('click', ()=> {
-    monsterdamage(50)
-    userdamage(20)
+    monsterdamage(60)
+    userdamage(40)
 })
 
 healButton.addEventListener('click', ()=> {
-    
+    heal(30)
 })
